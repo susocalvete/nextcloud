@@ -56,3 +56,4 @@ services:
 volumes:
   db:
   nextcloud:
+  nextcloud/nginx/nginx.conf:
