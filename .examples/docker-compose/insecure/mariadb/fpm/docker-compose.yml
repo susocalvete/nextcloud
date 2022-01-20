@@ -39,7 +39,7 @@ services:
       - 7777:80
     volumes:
       - nextcloud:/var/www/html:ro
-      - nginx:/etc/nginx
+      - nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - app
 
