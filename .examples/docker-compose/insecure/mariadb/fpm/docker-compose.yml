@@ -69,22 +69,21 @@ services:
         ipv4_address: 172.100.0.13
   
   collabora:
-    image: collabora/code
+    image: collabora/code:6.4.6.7
     container_name: collabora
     ports:
-      - 9980:9980
-    expose:
-      - "9980"
+      - 9980:9980/tcp
     environment:
       - domain=ad10s.duckdns.org
       - username=nextcloud
       - password=Tahiti10..
-      - 'dictionaries=en_US,es_ES'
-      - 'servername=collabora.duckdns.org'
+      - dictionaries=es_AR es_ES en_GB en_US
+      - TZ=Europe/Madrid
+      - servername=collabora.duckdns.org
       - VIRTUAL_PROTO=http
       - VIRTUAL_PORT=9980
       - VIRTUAL_HOST=collabora.duckdns.org
-      - "extra_params=--o:ssl.enable=false  --o:ssl.termination=true"
+      - extra_params=--o:ssl.enable=false  --o:ssl.termination=true
     cap_add:
       - MKNOD    
     tty: true
